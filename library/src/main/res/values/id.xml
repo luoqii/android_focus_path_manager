@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<item name="ID_ORIGINAL_BOUND" type="id"/>-->
+    <!--<item name="TAG_RESTORE_FOCUS_VIEW" type="id"/>-->
+    <item name="VIEW_ID_MARK_FOCUS_COLLEAGUE" type="id"/>
+    <item name="VIEW_ID_MY_SELF" type="id"/>
+    <item name="VIEW_ID_KEEP_FOCUS_HISTORY" type="id"/>
+    <item name="VIEW_ID_NEXT_RIGHT" type="id"/>
+    <item name="VIEW_ID_NEXT_UP" type="id"/>
+    <item name="VIEW_ID_NEXT_DOWN" type="id"/>
+    <item name="VIEW_ID_NEXT_LEFT" type="id"/>
+
+    <item type="id" name="next_foucs_left"></item>
+    <item type="id" name="next_foucs_right"></item>
+    <item type="id" name="next_foucs_down"></item>
+    <item type="id" name="next_foucs_up"></item>
+</resources>
