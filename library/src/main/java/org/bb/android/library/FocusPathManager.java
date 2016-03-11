@@ -165,7 +165,7 @@ public class FocusPathManager {
                 || (tag != null && tag instanceof Integer && VIEW_ID_MARK_FOCUS_COLLEAGUE == (Integer)tag));
     }
 
-    public static boolean handleFocusKeyEvent(KeyEvent event, Window window) {
+    public boolean handleFocusKeyEvent(KeyEvent event, Window window) {
         return handleFocusKeyEvent(event, window, true);
     }
 
@@ -176,7 +176,7 @@ public class FocusPathManager {
      * @return
      * @see #remmberFocusState(View, View, int)
      */
-    public static boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveFocuscolleagueFocusPathAlso) {
+    public boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveFocuscolleagueFocusPathAlso) {
         int keyCode = event.getKeyCode();
         int action = event.getAction();
         if (action != KeyEvent.ACTION_DOWN) {
