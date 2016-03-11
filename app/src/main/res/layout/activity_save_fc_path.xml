@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:background="#123456"
+        android:id="@+id/left_focus_colleague"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="focus colleague 1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="button 1"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent">
+        <FrameLayout
+            android:background="#234567"
+            android:id="@+id/right_top_focus_colleague"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="focus colleague 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <Button
+                    android:text="button 2"
+                    android:layout_weight="1"
+                    android:layout_margin="16dp"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent" />
+                <Button
+
+                    android:text="button 3"
+                    android:layout_weight="1"
+                    android:layout_margin="16dp"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"  />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:background="#345678"
+            android:id="@+id/right_bottom_focus_colleague"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="focus colleague 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <Button
+                    android:text="button 2"
+                    android:layout_weight="1"
+                    android:layout_margin="16dp"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent" />
+                <Button
+
+                    android:text="button 3"
+                    android:layout_weight="1"
+                    android:layout_margin="16dp"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"  />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

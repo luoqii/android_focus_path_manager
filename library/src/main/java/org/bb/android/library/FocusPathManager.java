@@ -19,9 +19,9 @@ import java.util.Map;
  */
 public class FocusPathManager {
     private static final String TAG = FocusPathManager.class.getSimpleName();
-    public static final boolean DEBUG = false && BuildConfig.DEBUG;
+    public static /*final*/ boolean DEBUG = false && BuildConfig.DEBUG;
 
-    private static Map<WeakReference<View>, WeakReference<View>> sFocusMap = new Hashtable<WeakReference<View>, WeakReference<View>>();
+    private Map<WeakReference<View>, WeakReference<View>> mFocusMap = new Hashtable<WeakReference<View>, WeakReference<View>>();
 
     public static final int VIEW_ID_MARK_FOCUS_COLLEAGUE = R.id.VIEW_ID_MARK_FOCUS_COLLEAGUE;
     /**
@@ -43,9 +43,9 @@ public class FocusPathManager {
     private static final int TAG_NEXT_FOCUS_DOWN    = R.id.next_foucs_down;
     private static final int TAG_NEXT_FOCUS_UP      = R.id.next_foucs_up;
 
-    public static boolean hasSavedFocusColleague(View colleague) {
+    public boolean hasSavedFocusColleague(View colleague) {
 //        assureIsFocuscolleague(colleague);
-        for (WeakReference<View> s : sFocusMap.keySet()) {
+        for (WeakReference<View> s : mFocusMap.keySet()) {
             if (null != s && s.get() == colleague) {
                 return true;
             }
@@ -54,22 +54,22 @@ public class FocusPathManager {
         return false;
     }
 
-    public static View getSavedFocusViewFromColleague(View colleague) {
+    public View getSavedFocusViewFromColleague(View colleague) {
         assureIsFocuscolleague(colleague);
-        for (WeakReference<View> s : sFocusMap.keySet()) {
+        for (WeakReference<View> s : mFocusMap.keySet()) {
             if (null != s && s.get() == colleague) {
-                return sFocusMap.get(s).get();
+                return mFocusMap.get(s).get();
             }
         }
 
         return null;
     }
 
-    public static void saveColleagueAndFocusView(View colleague, View focus) {
+    public void saveColleagueAndFocusView(View colleague, View focus) {
         assureIsFocuscolleague(colleague);
         if (hasSavedFocusColleague(colleague)) {
             WeakReference<View> it = null;
-            for (WeakReference<View> s : sFocusMap.keySet()) {
+            for (WeakReference<View> s : mFocusMap.keySet()) {
                 if (null != s && s.get() == colleague) {
                     it = s;
                     break;
@@ -77,7 +77,7 @@ public class FocusPathManager {
             }
 
             if (null != it) {
-                sFocusMap.remove(it);
+                mFocusMap.remove(it);
             }
         }
 
@@ -86,11 +86,11 @@ public class FocusPathManager {
             Log.d(TAG, "request save    focus for :" + colleague);
             Log.d(TAG, "request save    focus for :" + focus);
         }
-        sFocusMap.put(new WeakReference<View>(colleague),
+        mFocusMap.put(new WeakReference<View>(colleague),
                 new WeakReference<View>(focus));
     }
 
-    public static boolean restoreColleagueFocus(View colleague, int direction){
+    public boolean restoreColleagueFocus(View colleague, int direction){
         boolean handled = false;
         View view2restore = getSavedFocusViewFromColleague(colleague);
         if (null != view2restore) {
@@ -118,15 +118,7 @@ public class FocusPathManager {
         }
     }
 
-    @Deprecated
-    public static void saveFocus(View childView, Bundle focusState) {
-        View c = findFocusColleagueUp(childView);
-        if (c != null && c instanceof IFocusColleague) {
-            ((IFocusColleague) c).saveFocus(focusState);
-        }
-    }
-
-    public static void saveFocus(View focus) {
+    public void saveFocus(View focus) {
         View c = findFocusColleagueUp(focus);
         if (c != null) {
             saveColleagueAndFocusView(c, focus);
@@ -172,11 +164,11 @@ public class FocusPathManager {
     /**
      * @param event
      * @param window
-     * @param saveFocuscolleagueFocusPathAlso also remember focusColleague focus path.
+     * @param saveColleagueFocusPathAlso also remember focusColleague focus path.
      * @return
      * @see #remmberFocusState(View, View, int)
      */
-    public boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveFocuscolleagueFocusPathAlso) {
+    public boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveColleagueFocusPathAlso) {
         int keyCode = event.getKeyCode();
         int action = event.getAction();
         if (action != KeyEvent.ACTION_DOWN) {
@@ -234,21 +226,20 @@ public class FocusPathManager {
             return handled;
         }
 
-        if ((null == nextFocusColleague
-                // when no save focus colleague, user specified id always take effect.
-                || !saveFocuscolleagueFocusPathAlso)
+        if (    (null == nextFocusColleague
+                    || !saveColleagueFocusPathAlso)// when no save focus colleague, user specified id always take effect.
                 && nextId != View.NO_ID) {
             // user specified id .
-            View nColleagueView = decorView.findViewById(nextId);
-            if (null != nColleagueView
-                    && isFocusColleague(nColleagueView)) {
-                nextFocusColleague = nColleagueView;
+            View newColleagueView = decorView.findViewById(nextId);
+            if (null != newColleagueView
+                    && isFocusColleague(newColleagueView)) {
+                nextFocusColleague = newColleagueView;
                 if (DEBUG) {
                     Log.i(TAG, "replace nextFocusColleague by id. nextFocusColleague: " + nextFocusColleague);
                 }
             }
         }
-        if (saveFocuscolleagueFocusPathAlso) {
+        if (saveColleagueFocusPathAlso) {
             View nextCandidate = getNextFocusViewByTag(currentFocusColleague, direction);
             if (null != nextCandidate) {
                 nextFocusColleague = nextCandidate;
@@ -269,12 +260,12 @@ public class FocusPathManager {
         }
 
         // save and restore.
-        //#1 save focus
+        //#1/2 save focus
         saveColleagueAndFocusView(currentFocusColleague, currentfocus);
-        //#2 try to restore focus.
+        //#2/2 try to restore focus.
         if (hasSavedFocusColleague(nextFocusColleague)) {
             handled = restoreColleagueFocus(nextFocusColleague, direction);
-            if (handled && saveFocuscolleagueFocusPathAlso) {
+            if (handled && saveColleagueFocusPathAlso) {
                 remmberFocusStateByTag(currentFocusColleague, nextFocusColleague, direction, true);
             }
         } else {
@@ -285,7 +276,7 @@ public class FocusPathManager {
             handled = ((View) nextFocusColleague).requestFocus();
 
             if (handled) {
-                if (saveFocuscolleagueFocusPathAlso) {
+                if (saveColleagueFocusPathAlso) {
                     remmberFocusStateByTag(currentFocusColleague, nextFocusColleague, direction, true);
                 }
                 ((View) nextFocusColleague).playSoundEffect(SoundEffectConstants.getContantForFocusDirection(direction));
@@ -659,41 +650,16 @@ public class FocusPathManager {
     /**
      * <p/>
      * stupid simple focus colleague, this is a markable(null) impl interface,
-     * focusutil will manage save & restore focus automatically.
+     * FocusPathManager will manage save & restore focus automatically.
      * <p/>
-     * instead of impling this null interface, you can set a {@link FocusUtil#VIEW_ID_MARK_FOCUS_Colleague}
+     * instead of impling this null interface, you can set a {@link FocusPathManager#VIEW_ID_MARK_FOCUS_COLLEAGUE}
      * to colleague view.
-     *
-     * @see FocusUtil#VIEW_ID_MARK_FOCUS_COLLEAGUE
+     * 
+     * @see FocusPathManager#VIEW_ID_MARK_FOCUS_COLLEAGUE
      */
     public static interface ISimpleFocusColleague {
 
     }
 
-    /**
-     * use {@link #handleFocusKeyEvent} instead.
-     */
-    @Deprecated
-    public static interface IFocusColleague extends ISimpleFocusColleague {
-
-        /**
-         * for sub-widget to save their current focus state.
-         * <p/>
-         * NOTE: framework (now {@link FocusActivity}) will NOT call this
-         *
-         * @param focusState
-         */
-        public void saveFocus(Bundle focusState);
-
-        /**
-         * framework (now {@link FocusActivity}) will call this to restore
-         * focus.
-         */
-        public boolean restoreFocus();
-
-        /**
-         */
-        public void clearFocus();
-    }
 }
 

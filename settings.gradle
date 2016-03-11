@@ -1,1 +1,3 @@
 include ':app', ':library'
+
+include ":..:android_common_lib:library"
