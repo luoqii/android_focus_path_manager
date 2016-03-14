@@ -226,9 +226,11 @@ public class FocusPathManager {
             return handled;
         }
 
-        if (    (null == nextFocusColleague
-                    || !saveColleagueFocusPathAlso)// when no save focus colleague, user specified id always take effect.
-                && nextId != View.NO_ID) {
+        if (
+//                (null == nextFocusColleague
+//                    || !saveColleagueFocusPathAlso)// when no save focus colleague, user specified id always take effect.
+//                &&
+                        nextId != View.NO_ID) {
             // user specified id .
             View newColleagueView = decorView.findViewById(nextId);
             if (null != newColleagueView

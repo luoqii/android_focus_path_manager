@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FocusActivity"
-            android:label="focuspathmanager/FocusPathM">
+            android:label="focuspathmanager/Focus Path">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FocusActivity$A"
-            android:label="focuspathmanager/Predefine Focus Path">
+            android:label="focuspathmanager/Focus Path Predefine ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SaveFCPathActivity$A"
-            android:label="focuspathmanager/Predefine Colleague Focus Direction">
+            android:label="focuspathmanager/Focus Colleague Path VIEW_ID_MY_SELF">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -49,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SaveFCPathActivity$B"
-            android:label="focuspathmanager/Predefine Focus Colleague Path">
+            android:label="focuspathmanager/Focus Colleague Path Predefine ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>

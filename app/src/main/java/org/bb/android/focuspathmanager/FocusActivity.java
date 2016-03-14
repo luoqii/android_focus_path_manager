@@ -41,7 +41,7 @@ public class FocusActivity extends Activity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            mFocusPathM.saveFocus(findViewById(R.id.button_3));
+            mFocusPathM.saveFocus(findViewById(R.id.button3));
         }
     }
 }
