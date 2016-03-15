@@ -23,7 +23,8 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion = 23
+    // for CI
+    compileSdkVersion = 21
     buildToolsVersion = '21.1.1'
 
 
