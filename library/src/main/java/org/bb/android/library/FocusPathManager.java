@@ -469,7 +469,7 @@ public class FocusPathManager {
             // ==========++++++++++++++++++------------
             logFocus("new foucs after  ", to);
         }
-t
+
     }
 
     public static void remmberFocusStateById(View from, View to, KeyEvent keyEvent, boolean unUsed) {
