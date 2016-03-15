@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
 public class FocusPMUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 4 + 2);
+        assertEquals(4, 2 + 2);
     }
 
-    void testDemo() throws Exception {
+    void testAddition() throws Exception {
         addition_isCorrect();
     }
 
