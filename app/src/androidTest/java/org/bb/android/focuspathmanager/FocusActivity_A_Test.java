@@ -3,7 +3,6 @@ package org.bb.android.focuspathmanager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.ViewAsserts;
 import android.view.View;
 
 import org.junit.After;
@@ -15,15 +14,15 @@ import org.junit.runner.RunWith;
  * Created by bysong on 16-3-14.
  */
 @RunWith(AndroidJUnit4.class)
-public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusActivity> {
+public class FocusActivity_A_Test extends ActivityInstrumentationTestCase2<FocusActivity.A> {
     private FocusActivity mActivity;
 
 //    public FocusActivityTest(Class<FocusActivity> activityClass) {
 //        super(activityClass);
 //    }
 
-    public FocusActivityTest(){
-        super(FocusActivity.class);
+    public FocusActivity_A_Test(){
+        super(FocusActivity.A.class);
     }
 
     @Before
@@ -46,18 +45,6 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
         View v = mActivity.getWindow().getDecorView();
 
         View currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button1);
-
-        sendKeys("DPAD_RIGHT");
-        currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button2);
-
-        sendKeys("DPAD_DOWN");
-        currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button3);
-
-        sendKeys("DPAD_LEFT");
-        currentF = v.findFocus();
         assertIdIs(currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
