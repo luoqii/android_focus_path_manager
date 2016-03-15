@@ -45,15 +45,11 @@ public class FocusActivity_A_Test extends ActivityInstrumentationTestCase2<Focus
         View v = mActivity.getWindow().getDecorView();
 
         View currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button1);
+        FocusActivityTest.assertIdIs(currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button3);
+        FocusActivityTest.assertIdIs(currentF, R.id.button3);
     }
 
-
-    public static void assertIdIs(View view, int id){
-        assertEquals(view.getId(), id);
-    }
 }

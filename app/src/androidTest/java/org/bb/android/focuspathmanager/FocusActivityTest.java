@@ -2,14 +2,19 @@ package org.bb.android.focuspathmanager;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.view.ViewParentCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.w3c.dom.Text;
 
 /**
  * Created by bysong on 16-3-14.
@@ -66,7 +71,31 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
     }
 
 
-    public static void assertIdIs(View view, int id){
-        assertEquals(view.getId(), id);
+    public static void assertIdIs(View view, int id)
+    {
+        String expectStr = viewStr(view);
+        String actualStr = viewStr(getRootView(view));
+        assertEquals("expected:" + expectStr + " but actual: " + actualStr , view.getId(), id);
+    }
+
+    private static View getRootView(View view) {
+        View root = null;
+        if (view != null){
+            root = view.getRootView();
+        }
+        return root;
+    }
+
+    public static String viewStr(View view){
+            String expectStr = "";
+            if (view == null){
+                if (view instanceof TextView){
+                    expectStr = ((TextView)view).getText().toString();
+                } else {
+                    expectStr = view.toString();
+                }
+            }
+
+        return expectStr;
     }
 }
