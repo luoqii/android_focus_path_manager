@@ -88,7 +88,7 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
 
     public static String viewStr(View view){
             String expectStr = "";
-            if (view == null){
+            if (view != null){
                 if (view instanceof TextView){
                     expectStr = ((TextView)view).getText().toString();
                 } else {
