@@ -43,7 +43,8 @@ cache:
 
 install:
 #ant deps
-    - android-update-sdk --components=build-tools-21.1.1
+    - android-update-sdk --components=android-23
+    - android-update-sdk --components=build-tools-23.0.1
 
 before_script:
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
