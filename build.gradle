@@ -23,9 +23,10 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion = 22
-    buildToolsVersion = '23.0.1'
-    appcompatv7Version = '23.0.1'
+    compileSdkVersion = 21
+    buildToolsVersion = '21.1.1'
+
+    appcompatv7Version = '22.0.0'
 
     runnerVersion = "0.4.1"
     rulesVersion = "0.4.1"
