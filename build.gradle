@@ -23,7 +23,7 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion = 23
+    compileSdkVersion = 22
     buildToolsVersion = '23.0.1'
     appcompatv7Version = '23.0.1'
 
