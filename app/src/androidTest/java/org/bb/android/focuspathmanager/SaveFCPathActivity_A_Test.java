@@ -45,39 +45,39 @@ public class SaveFCPathActivity_A_Test extends ActivityInstrumentationTestCase2<
         View v = mActivity.getWindow().getDecorView();
 
         View currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button1);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button2);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button2);
 
         sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button3);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
 
         sendKeys("DPAD_LEFT");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button1);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button3);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
 
         sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button4);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
 
         sendKeys("DPAD_LEFT");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button1);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button4);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
 
         sendKeys("DPAD_UP");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(currentF, R.id.button4);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
     }
 
 }

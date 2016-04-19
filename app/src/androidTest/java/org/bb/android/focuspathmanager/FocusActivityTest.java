@@ -1,20 +1,17 @@
 package org.bb.android.focuspathmanager;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.view.ViewParentCompat;
-import android.support.v4.widget.TextViewCompat;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.ViewAsserts;
 import android.view.View;
-import android.view.ViewParent;
 import android.widget.TextView;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.w3c.dom.Text;
 
 /**
  * Created by bysong on 16-3-14.
@@ -51,30 +48,31 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
         View v = mActivity.getWindow().getDecorView();
 
         View currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button1);
+        assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button2);
+        assertIdIs(mActivity, currentF, R.id.button2);
 
         sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button3);
+        assertIdIs(mActivity, currentF, R.id.button3);
 
         sendKeys("DPAD_LEFT");
         currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button1);
+        assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
         currentF = v.findFocus();
-        assertIdIs(currentF, R.id.button3);
+        assertIdIs(mActivity, currentF, R.id.button3);
     }
 
 
-    public static void assertIdIs(View view, int id)
+    public static void assertIdIs(Activity act, View view, int id)
     {
         String expectStr = viewStr(view);
-        String actualStr = viewStr(getRootView(view));
+        String actualStr = viewStr(act.findViewById(id));
+        String idStr = id + "";
         assertEquals("expected:" + expectStr + " but actual: " + actualStr , view.getId(), id);
     }
 
@@ -87,7 +85,7 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
     }
 
     public static String viewStr(View view){
-            String expectStr = "";
+            String expectStr = "Not Exist";
             if (view != null){
                 if (view instanceof TextView){
                     expectStr = ((TextView)view).getText().toString();
