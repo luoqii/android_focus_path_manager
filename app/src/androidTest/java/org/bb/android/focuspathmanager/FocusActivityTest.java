@@ -96,4 +96,14 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
 
         return expectStr;
     }
+
+    @Override
+    public void sendKeys(String keysSequence) {
+        super.sendKeys(keysSequence);
+        try {
+            Thread.sleep(ApplicationTest.SLEEP_AFTER_KEY);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

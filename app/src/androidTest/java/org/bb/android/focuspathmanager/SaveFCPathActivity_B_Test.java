@@ -63,4 +63,14 @@ public class SaveFCPathActivity_B_Test extends ActivityInstrumentationTestCase2<
         currentF = v.findFocus();
         FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
     }
+
+    @Override
+    public void sendKeys(String keysSequence) {
+        super.sendKeys(keysSequence);
+        try {
+            Thread.sleep(ApplicationTest.SLEEP_AFTER_KEY);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
