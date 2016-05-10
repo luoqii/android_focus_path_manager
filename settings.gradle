@@ -1,3 +1,3 @@
 include ':app', ':library'
 
-//include ":..:android_common_lib:library"
+project(':library').name = 'focus-path-m'

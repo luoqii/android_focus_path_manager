@@ -12,7 +12,7 @@ version = "0.0.1"
 // uploade to jCenter.
 def siteUrl = 'https://github.com/luoqii/android_common_lib'
 def gitUrl = 'https://github.com/luoqii/android_common_lib.git'
-group = "org.bbs.android.lib"
+group = "org.bbs.android"
 
 install {
     repositories.mavenInstaller {
@@ -20,7 +20,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'Android Common Lib'                                   // #CONFIG# // project title
+                name 'Android focus path manager'                                   // #CONFIG# // project title
                 url siteUrl
                 // Set your license
                 licenses {
@@ -74,7 +74,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "andriodcommonlib"                                                 // #CONFIG# project name in jcenter
+        name = "android-focus-path-m"                                                 // #CONFIG# project name in jcenter
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

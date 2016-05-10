@@ -1,7 +1,5 @@
 apply plugin: 'android-library'
 
-//apply from: 'jcenter.gradle'
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -23,5 +21,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:' + rootProject.ext.appcompatv7Version
+
+//    provided 'com.android.support:appcompat-v7:' + rootProject.ext.appcompatv7Version
 }
+
+apply from: 'bintray.gradle'
+//apply from: 'jcenter.gradle'

@@ -24,14 +24,17 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-//    compile 'com.android.support:appcompat-v7:' + rootProject.ext.appcompatv7Version
-    compile project(':library')
+    compile 'com.android.support:appcompat-v7:' + rootProject.ext.appcompatv7Version
+    compile project(':focus-path-m')
 
-    compile 'org.bbs.android.lib:library:0.0.3'
+    compile 'org.bbs.android.commonlib:commonlib:0.1'
 //    compile project(path: ':..:android_common_lib:library')
     androidTestCompile 'junit:junit:4.12'
 
     // Android Testing Support Library's runner and rules
     androidTestCompile 'com.android.support.test:runner:' + rootProject.ext.runnerVersion
     androidTestCompile 'com.android.support.test:rules:' + rootProject.ext.rulesVersion
+
+    androidTestCompile 'com.android.support:support-annotations:23.3.0'
+    compile 'com.android.support:support-annotations:23.3.0'
 }

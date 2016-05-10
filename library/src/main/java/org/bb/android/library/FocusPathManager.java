@@ -14,6 +14,8 @@ import java.lang.ref.WeakReference;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.bb.android.library.R;
+
 /**
  * Created by bysong on 16-3-11.
  */
@@ -165,8 +167,8 @@ public class FocusPathManager {
      * @param event
      * @param window
      * @param saveColleagueFocusPathAlso also remember focusColleague focus path.
-     * @return
-     * @see #remmberFocusState(View, View, int)
+     * @return true if handled, otherwise false.
+     * @see #remmberFocusStateById(View, View, int)
      */
     public boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveColleagueFocusPathAlso) {
         int keyCode = event.getKeyCode();
@@ -414,9 +416,9 @@ public class FocusPathManager {
     /**
      * @param from
      * @param to
-     * @param directionCode
-     * @see #remmberFocusState(View, View, int)
-     * @see #handleFocusKeyEventIntraFocusColleague(android.view.KeyEvent, android.view.View)
+     * @param focusDirection
+     * @see #remmberFocusState(View, View, KeyEvent, boolean)
+     * @see #handleFocusKeyEventIntraFocusColleagueById(KeyEvent, View)
      */
     public static void remmberFocusStateByTag(View from, View to, int focusDirection, boolean force) {
         if (null == from || null == to || from == to) {
@@ -490,7 +492,7 @@ public class FocusPathManager {
      *
      * @param from
      * @param to
-     * @param directionCode
+     * @param focusDirection
      * @see #remmberFocusStateById(View, View, int)
      */
     public static void remmberFocusStateById(View from, View to, int focusDirection) {
@@ -659,6 +661,7 @@ public class FocusPathManager {
      * 
      * @see FocusPathManager#VIEW_ID_MARK_FOCUS_COLLEAGUE
      */
+    @Deprecated
     public static interface ISimpleFocusColleague {
 
     }
