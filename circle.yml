@@ -7,8 +7,8 @@ dependencies:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
         parallel: true
-    - circle-android wait-for-boot
-    - fb-adb shell input keyevent 82 &
+#    - circle-android wait-for-boot
+#    - fb-adb shell input keyevent 82 &
 test:
   override:
 #    - ./gradlew cAT
