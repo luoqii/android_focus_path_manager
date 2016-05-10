@@ -13,5 +13,6 @@ test:
   override:
 #    - ./gradlew cAT
 #    - cp android_focus_path_manager/app/build/reports/androidTests/connected/index.html $CIRCLE_ARTIFACTS
+     - touch local.properties
      - ./gradlew assembleDebug
 
