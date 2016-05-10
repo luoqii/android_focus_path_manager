@@ -25,5 +25,5 @@ dependencies {
 //    provided 'com.android.support:appcompat-v7:' + rootProject.ext.appcompatv7Version
 }
 
-apply from: 'bintray.gradle'
+//apply from: 'bintray.gradle'
 //apply from: 'jcenter.gradle'
