@@ -11,6 +11,7 @@ dependencies:
     - fb-adb shell input keyevent 82 &
 test:
   override:
-    - ./gradlew cAT
-    - cp android_focus_path_manager/app/build/reports/androidTests/connected/index.html $CIRCLE_ARTIFACTS
+#    - ./gradlew cAT
+#    - cp android_focus_path_manager/app/build/reports/androidTests/connected/index.html $CIRCLE_ARTIFACTS
+     - ./gradlew assembleDebug
 
