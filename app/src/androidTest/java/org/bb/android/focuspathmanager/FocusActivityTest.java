@@ -1,13 +1,15 @@
 package org.bb.android.focuspathmanager;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.TextView;
 
+import junit.framework.Assert;
+
+import org.bb.android.library.FocusPathManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -95,5 +97,30 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
             }
 
         return expectStr;
+    }
+
+    @Test
+    public void test_isFocusColleague(){
+        View colleague = new View(mActivity);
+        FocusPathManager pm = new FocusPathManager();
+
+        Assert.assertFalse(pm.isFocusColleague(colleague));
+
+        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+        Assert.assertTrue(pm.isFocusColleague(colleague));
+    }
+
+    @Test
+    public void test_saveColleagueAndFocusView(){
+        View colleague = new View(mActivity);
+        FocusPathManager pm = new FocusPathManager();
+        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 0);
+
+        View focus = new View(mActivity);
+        pm.saveColleagueAndFocusView(colleague, focus);
+        View savedFocus = pm.getSavedFocusViewFromColleague(colleague);
+
+        Assert.assertEquals(focus, savedFocus);
+        Assert.assertTrue(pm.hasSavedFocusColleague(colleague));
     }
 }

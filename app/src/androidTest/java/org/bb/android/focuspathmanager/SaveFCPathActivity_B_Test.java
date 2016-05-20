@@ -61,6 +61,6 @@ public class SaveFCPathActivity_B_Test extends ActivityInstrumentationTestCase2<
 
         sendKeys("DPAD_UP");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
     }
 }
