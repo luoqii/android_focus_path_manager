@@ -45,6 +45,10 @@ public class FocusPathManager {
     private static final int TAG_NEXT_FOCUS_DOWN    = R.id.next_foucs_down;
     private static final int TAG_NEXT_FOCUS_UP      = R.id.next_foucs_up;
 
+    public static void markAsFocusColleague(View view){
+        view.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+    }
+
     public boolean hasSavedFocusColleague(View colleague) {
 //        assureIsFocuscolleague(colleague);
         for (WeakReference<View> s : mFocusMap.keySet()) {
@@ -116,7 +120,7 @@ public class FocusPathManager {
 
     static void assureIsFocuscolleague(View colleague) {
         if (!isFocusColleague(colleague)) {
-            throw new IllegalArgumentException("input is NOT a valid colleague, colleague" + colleague);
+            throw new IllegalArgumentException("input is NOT a valid colleague, colleague:" + colleague);
         }
     }
 

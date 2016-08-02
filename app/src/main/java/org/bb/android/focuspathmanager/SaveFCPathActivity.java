@@ -20,9 +20,12 @@ public class SaveFCPathActivity extends Activity {
 
         // step 1/2
         mFocusPathM = new FocusPathManager();
-        findViewById(R.id.left_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
-        findViewById(R.id.right_top_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
-        findViewById(R.id.right_bottom_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+//        findViewById(R.id.left_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+//        findViewById(R.id.right_top_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+//        findViewById(R.id.right_bottom_focus_colleague).setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+        mFocusPathM.markAsFocusColleague(findViewById(R.id.left_focus_colleague));
+        mFocusPathM.markAsFocusColleague(findViewById(R.id.right_top_focus_colleague));
+        mFocusPathM.markAsFocusColleague(findViewById(R.id.right_bottom_focus_colleague));
     }
 
     @Override
