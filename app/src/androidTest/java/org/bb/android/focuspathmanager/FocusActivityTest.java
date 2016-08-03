@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
  * Created by bysong on 16-3-14.
  */
 @RunWith(AndroidJUnit4.class)
-public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusActivity> {
+public class FocusActivityTest extends BaseActivityTest<FocusActivity> {
     private FocusActivity mActivity;
 
 //    public FocusActivityTest(Class<FocusActivity> activityClass) {
@@ -37,7 +37,7 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
         // Injecting the Instrumentation instance is required
         // for your test to run with AndroidJUnitRunner.
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
-        mActivity = getActivity();
+        mActivity = (FocusActivity) getActivity();
     }
 
     @After
@@ -106,7 +106,14 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
 
         Assert.assertFalse(pm.isFocusColleague(colleague));
 
-        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+//        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+        FocusPathManager.markAsFocusColleague(colleague);
+        Assert.assertTrue(pm.isFocusColleague(colleague));
+
+        FocusPathManager.unMarkAsFocusColleague(colleague);
+        Assert.assertFalse(pm.isFocusColleague(colleague));
+
+        FocusPathManager.markAsFocusColleague(colleague);
         Assert.assertTrue(pm.isFocusColleague(colleague));
     }
 
@@ -114,7 +121,8 @@ public class FocusActivityTest extends ActivityInstrumentationTestCase2<FocusAct
     public void test_saveColleagueAndFocusView(){
         View colleague = new View(mActivity);
         FocusPathManager pm = new FocusPathManager();
-        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 0);
+//        colleague.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 0);
+        FocusPathManager.markAsFocusColleague(colleague);
 
         View focus = new View(mActivity);
         pm.saveColleagueAndFocusView(colleague, focus);

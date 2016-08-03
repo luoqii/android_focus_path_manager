@@ -25,7 +25,7 @@ public class FocusPathManager {
 
     private Map<WeakReference<View>, WeakReference<View>> mFocusMap = new Hashtable<WeakReference<View>, WeakReference<View>>();
 
-    public static final int VIEW_ID_MARK_FOCUS_COLLEAGUE = R.id.VIEW_ID_MARK_FOCUS_COLLEAGUE;
+    private static final int VIEW_ID_MARK_FOCUS_COLLEAGUE = R.id.VIEW_ID_MARK_FOCUS_COLLEAGUE;
     /**
      * focus will keep in the same focus colleague.
      */
@@ -47,6 +47,10 @@ public class FocusPathManager {
 
     public static void markAsFocusColleague(View view){
         view.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 1);
+    }
+
+    public static void unMarkAsFocusColleague(View view){
+        view.setTag(FocusPathManager.VIEW_ID_MARK_FOCUS_COLLEAGUE, 0);
     }
 
     public boolean hasSavedFocusColleague(View colleague) {
@@ -157,10 +161,10 @@ public class FocusPathManager {
             return false;
         }
 
-        Object tag = view.getTag();
+        Object tag = view.getTag(VIEW_ID_MARK_FOCUS_COLLEAGUE);
         return (view instanceof ISimpleFocusColleague
-                || view.getTag(VIEW_ID_MARK_FOCUS_COLLEAGUE) != null
-                || (tag != null && tag instanceof Integer && VIEW_ID_MARK_FOCUS_COLLEAGUE == (Integer)tag));
+//                || view.getTag(VIEW_ID_MARK_FOCUS_COLLEAGUE) != null
+                || (tag != null && tag instanceof Integer && 1 == (Integer)tag));
     }
 
     public boolean handleFocusKeyEvent(KeyEvent event, Window window) {

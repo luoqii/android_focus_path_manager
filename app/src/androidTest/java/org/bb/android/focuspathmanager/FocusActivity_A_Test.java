@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
  * Created by bysong on 16-3-14.
  */
 @RunWith(AndroidJUnit4.class)
-public class FocusActivity_A_Test extends ActivityInstrumentationTestCase2<FocusActivity.A> {
+public class FocusActivity_A_Test extends BaseActivityTest<FocusActivity.A> {
     private FocusActivity mActivity;
 
 //    public FocusActivityTest(Class<FocusActivity> activityClass) {
@@ -32,7 +32,7 @@ public class FocusActivity_A_Test extends ActivityInstrumentationTestCase2<Focus
         // Injecting the Instrumentation instance is required
         // for your test to run with AndroidJUnitRunner.
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
-        mActivity = getActivity();
+        mActivity = (FocusActivity) getActivity();
     }
 
     @After

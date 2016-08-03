@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
  * Created by bysong on 16-3-14.
  */
 @RunWith(AndroidJUnit4.class)
-public class SaveFCPathActivity_A_Test extends ActivityInstrumentationTestCase2<SaveFCPathActivity.A> {
+public class SaveFCPathActivity_A_Test extends BaseActivityTest<SaveFCPathActivity.A> {
     private SaveFCPathActivity mActivity;
 
 //    public FocusActivityTest(Class<FocusActivity> activityClass) {
@@ -32,7 +32,7 @@ public class SaveFCPathActivity_A_Test extends ActivityInstrumentationTestCase2<
         // Injecting the Instrumentation instance is required
         // for your test to run with AndroidJUnitRunner.
         injectInstrumentation(InstrumentationRegistry.getInstrumentation());
-        mActivity = getActivity();
+        mActivity = (SaveFCPathActivity) getActivity();
     }
 
     @After
