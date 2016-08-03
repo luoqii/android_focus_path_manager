@@ -181,9 +181,9 @@ public class FocusPathManager {
     public boolean handleFocusKeyEvent(KeyEvent event, Window window, boolean saveColleagueFocusPathAlso) {
         int keyCode = event.getKeyCode();
         int action = event.getAction();
-        if (action != KeyEvent.ACTION_DOWN) {
-            return false;
-        }
+//        if (action != KeyEvent.ACTION_DOWN) {
+//            return false;
+//        }
 
         boolean handled = false;
 

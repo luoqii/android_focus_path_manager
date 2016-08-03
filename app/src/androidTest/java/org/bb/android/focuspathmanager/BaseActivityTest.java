@@ -8,7 +8,7 @@ import android.view.View;
  * Created by bysong on 16-3-15.
  */
 // TODO avoid case object return by getActivity().
-public class BaseActivityTest<T> extends ActivityInstrumentationTestCase2 {
+public abstract class BaseActivityTest<T> extends ActivityInstrumentationTestCase2 {
 
 
     public BaseActivityTest(Class activityClass) {
