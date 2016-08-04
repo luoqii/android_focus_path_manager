@@ -61,7 +61,9 @@ before_script:
 #  - android list sdk --all | grep 'Build-tools' | grep '23.0.3'
 #  - android list sdk --all | grep 'Build-tools' | grep '23.0.3' | cut -c3-4
 #  - echo y | android update sdk --no-ui  --filter `android list sdk --all | grep 'Build-tools' | grep '23.0.3' | cut -c3-4`
+  - android list sdk -a --extended
   - echo y | android update sdk -u -t 6
+
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - adb wait-for-device
