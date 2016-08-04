@@ -18,6 +18,8 @@ import org.bb.android.library.R;
 
 /**
  * Created by bysong on 16-3-11.
+ *
+ * remember user focus path, and back to it.
  */
 public class FocusPathManager {
     private static final String TAG = FocusPathManager.class.getSimpleName();
