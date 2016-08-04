@@ -52,10 +52,10 @@ before_script:
 # install build-tool
   - env
   - which grep
-  - FILTER=1,2,3,4,5,6,7,8,9,10
+#  - FILTER=1,2,3,4,5,6,7,8,9,10
   - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) \
         | android update sdk --no-ui --all \
-        --filter ${FILTER}
+        --filter ,2,3,4,5,6,7,8,9,10
   - android list sdk --all
   - android list sdk --all | grep Build-tools
   - android list sdk --all | grep 'Build-tools' | grep '23.0.3'
