@@ -25,6 +25,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".FocusActivity$A"
+            android:label="focuspathmanager/Focussdf Path Intra Colleague id ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".FocusActivity$IntraFocudById"
+            android:label="focuspathmanager/Focus Path Intra Colleague tag ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".FocusActivity$IntraFocudByTag"
             android:label="focuspathmanager/Focus Path Predefine ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

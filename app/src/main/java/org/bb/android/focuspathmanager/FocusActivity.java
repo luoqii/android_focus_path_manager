@@ -46,4 +46,48 @@ public class FocusActivity extends Activity {
             mFocusPathM.saveFocus(findViewById(R.id.button3));
         }
     }
+
+    public static class IntraFocudById extends FocusActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            FocusPathManager.markAsFocusColleague(findViewById(R.id.left_focus_colleague));
+            FocusPathManager.markAsFocusColleague(findViewById(R.id.right_focus_colleague));
+        }
+
+        @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+            boolean handled =  super.onKeyDown(keyCode, event);
+
+            // step 2/2
+            if (!handled){
+                handled = mFocusPathM.handleFocusKeyEventIntraFocusColleagueById(event, getWindow().getDecorView());
+            }
+
+            return handled;
+        }
+    }
+
+    public static class IntraFocudByTag extends FocusActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            FocusPathManager.markAsFocusColleague(findViewById(R.id.left_focus_colleague));
+            FocusPathManager.markAsFocusColleague(findViewById(R.id.right_focus_colleague));
+        }
+
+        @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+            boolean handled =  super.onKeyDown(keyCode, event);
+
+            // step 2/2
+            if (!handled){
+                handled = mFocusPathM.handleFocusKeyEventIntraFocusColleagueByTag(event, getWindow().getDecorView());
+            }
+
+            return handled;
+        }
+    }
 }

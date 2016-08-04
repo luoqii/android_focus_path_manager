@@ -304,7 +304,7 @@ public class FocusPathManager {
         doDebugFC(root, 0);
     }
 
-    public static void doDebugFC(View root, int fcCount){
+    private static void doDebugFC(View root, int fcCount){
         if (isFocusColleague(root)) {
             Log.d(TAG, "found fc #" + fcCount + " " + root);
             fcCount++;
@@ -377,16 +377,16 @@ public class FocusPathManager {
         return handled;
     }
 
-    public static boolean handleFocusKeyEventIntraFocusColleagueById(KeyEvent event, View view) {
+    public static boolean handleFocusKeyEventIntraFocusColleagueById(KeyEvent event, View container) {
         boolean handled = false;
         int direction = -1;
         int keyCode = event.getKeyCode();
         direction = keyCode2Direction(keyCode);
-        if (null != view) {
-            View focus = view.findFocus();
+        if (null != container) {
+            View focus = container.findFocus();
             View n = null;
             if (focus != null ) {
-                n = view.findViewById(getNextFocusId(focus, direction));
+                n = container.findViewById(getNextFocusId(focus, direction));
             }
             if (n != null) {
                 if (DEBUG) {
