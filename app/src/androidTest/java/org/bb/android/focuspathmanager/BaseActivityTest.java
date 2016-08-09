@@ -25,24 +25,24 @@ public abstract class BaseActivityTest<T> extends ActivityInstrumentationTestCas
         super.sendKeys(keys);
 //        getInstrumentation().waitForIdleSync();
 
-        try {
-            //
-            wait(getSendKeyWaitTime());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //
+//            wait(getSendKeyWaitTime());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
     public void sendKeys(String keysSequence) {
         super.sendKeys(keysSequence);
 
-        try {
-            //
-            wait(getSendKeyWaitTime());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //
+//            wait(getSendKeyWaitTime());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**
