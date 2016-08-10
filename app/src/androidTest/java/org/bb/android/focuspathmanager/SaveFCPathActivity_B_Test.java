@@ -44,25 +44,25 @@ public class SaveFCPathActivity_B_Test extends BaseActivityTest<SaveFCPathActivi
     public void testFocusPath(){
 
         // always failed in n 6 device
-//        View v = mActivity.getWindow().getDecorView();
-//
-//        View currentF = v.findFocus();
-//        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
-//
-//        sendKeys("DPAD_RIGHT");
-//        currentF = v.findFocus();
-//        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
-//
-//        sendKeys("DPAD_LEFT");
-//        currentF = v.findFocus();
-//        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
-//
-//        sendKeys("DPAD_RIGHT");
-//        currentF = v.findFocus();
-//        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
-//
-//        sendKeys("DPAD_UP");
-//        currentF = v.findFocus();
-//        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
+        View v = mActivity.getWindow().getDecorView();
+
+        View currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+
+        sendKeys("DPAD_RIGHT");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
+
+        sendKeys("DPAD_LEFT");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+
+        sendKeys("DPAD_RIGHT");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
+
+        sendKeys("DPAD_UP");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
     }
 }

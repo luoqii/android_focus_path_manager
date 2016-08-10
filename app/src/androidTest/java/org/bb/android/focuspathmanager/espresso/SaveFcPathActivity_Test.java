@@ -30,22 +30,29 @@ public class SaveFcPathActivity_Test {
 
     @Test
     public void focusPath() {
-
         onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_RIGHT));
-        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button2)));
         onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_LEFT));
         onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button1)));
 
         onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_RIGHT));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_UP));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_UP));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_UP));
         onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button2)));
-        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_DOWN));
-        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button3)));
-        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_DOWN));
-        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button4)));
         onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_LEFT));
         onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button1)));
         onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_RIGHT));
-        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button4)));
+        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button2)));
+
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_RIGHT));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_DOWN));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_DOWN));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_DOWN));
+        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button5)));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_LEFT));
+        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button1)));
+        onView(withId(R.id.button1)).perform(pressKey(KeyEvent.KEYCODE_DPAD_RIGHT));
+        onView(FocusActivityTest.isFocused()).check(matches(withId(R.id.button5)));
 
     }
 

@@ -48,33 +48,8 @@ public class SaveFCPathActivityTest extends BaseActivityTest<SaveFCPathActivity>
         FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button2);
-
         sendKeys("DPAD_DOWN");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
-
-        sendKeys("DPAD_LEFT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
-
-        sendKeys("DPAD_RIGHT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
-
         sendKeys("DPAD_DOWN");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
-
-        sendKeys("DPAD_LEFT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
-
-        sendKeys("DPAD_RIGHT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button4);
-
         sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
         FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button5);
@@ -82,5 +57,18 @@ public class SaveFCPathActivityTest extends BaseActivityTest<SaveFCPathActivity>
         sendKeys("DPAD_LEFT");
         currentF = v.findFocus();
         FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+
+        sendKeys("DPAD_RIGHT");
+        sendKeys("DPAD_UP");
+        sendKeys("DPAD_UP");
+        sendKeys("DPAD_UP");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button2);
+
+        sendKeys("DPAD_LEFT");
+        currentF = v.findFocus();
+        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+
+
     }
 }

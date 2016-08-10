@@ -20,40 +20,6 @@ public abstract class BaseActivityTest<T> extends ActivityInstrumentationTestCas
         assertEquals(view.getId(), id);
     }
 
-    @Override
-    public void sendKeys(int... keys) {
-        super.sendKeys(keys);
-//        getInstrumentation().waitForIdleSync();
-
-//        try {
-//            //
-//            wait(getSendKeyWaitTime());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-    }
-
-    @Override
-    public void sendKeys(String keysSequence) {
-        super.sendKeys(keysSequence);
-
-//        try {
-//            //
-//            wait(getSendKeyWaitTime());
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-    }
-
-    /**
-     * wait time between keys, in millis
-     * for some devices, we must wait, wait, and wait.
-     */
-    public long getSendKeyWaitTime() {
-        return isEmulator() ? 10000L : 2000L;
-//        return 0L;
-    }
-
     // http://stackoverflow.com/questions/2799097/how-can-i-detect-when-an-android-application-is-running-in-the-emulator
     public static boolean isEmulator() {
         return Build.FINGERPRINT.startsWith("generic")
