@@ -47,19 +47,19 @@ public class FocusActivity_IntraFocusByTag_Test extends BaseActivityTest<FocusAc
         FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
+        sendKeys("DPAD_UP");
+        sendKeys("DPAD_UP");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button2);
-
-        sendKeys("DPAD_DOWN");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
-
         sendKeys("DPAD_LEFT");
-        currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button1);
+        sendKeys("DPAD_RIGHT");
+        assertEquals(v.findFocus(), currentF);
 
         sendKeys("DPAD_RIGHT");
+        sendKeys("DPAD_DOWN");
+        sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
-        FocusActivityTest.assertIdIs(mActivity, currentF, R.id.button3);
+        sendKeys("DPAD_LEFT");
+        sendKeys("DPAD_RIGHT");
+        assertEquals(v.findFocus(), currentF);
     }
 }

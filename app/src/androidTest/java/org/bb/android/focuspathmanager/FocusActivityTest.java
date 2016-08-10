@@ -53,20 +53,20 @@ public class FocusActivityTest extends BaseActivityTest<FocusActivity> {
         assertIdIs(mActivity, currentF, R.id.button1);
 
         sendKeys("DPAD_RIGHT");
+        sendKeys("DPAD_UP");
+        sendKeys("DPAD_UP");
         currentF = v.findFocus();
-        assertIdIs(mActivity, currentF, R.id.button2);
-
-        sendKeys("DPAD_DOWN");
-        currentF = v.findFocus();
-        assertIdIs(mActivity, currentF, R.id.button3);
-
         sendKeys("DPAD_LEFT");
-        currentF = v.findFocus();
-        assertIdIs(mActivity, currentF, R.id.button1);
+        sendKeys("DPAD_RIGHT");
+        assertEquals(v.findFocus(), currentF);
 
         sendKeys("DPAD_RIGHT");
+        sendKeys("DPAD_DOWN");
+        sendKeys("DPAD_DOWN");
         currentF = v.findFocus();
-        assertIdIs(mActivity, currentF, R.id.button3);
+        sendKeys("DPAD_LEFT");
+        sendKeys("DPAD_RIGHT");
+        assertEquals(v.findFocus(), currentF);
     }
 
 
