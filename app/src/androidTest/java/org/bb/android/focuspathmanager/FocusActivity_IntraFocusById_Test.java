@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
  * Created by bysong on 16-3-14.
  */
 @RunWith(AndroidJUnit4.class)
-public class FocusActivity_IntraFocusById_Test extends BaseActivityTest<FocusActivity.IntraFocudById> {
+public class FocusActivity_IntraFocusById_Test extends BaseActivityTest<FocusActivity.IntraFocusColleagueById> {
     private FocusActivity mActivity;
 
 //    public FocusActivityTest(Class<FocusActivity> activityClass) {
@@ -21,7 +21,7 @@ public class FocusActivity_IntraFocusById_Test extends BaseActivityTest<FocusAct
 //    }
 
     public FocusActivity_IntraFocusById_Test(){
-        super(FocusActivity.IntraFocudById.class);
+        super(FocusActivity.IntraFocusColleagueById.class);
     }
 
     @Before

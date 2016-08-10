@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".FocusActivity$IntraFocudById"
+        <activity android:name=".FocusActivity$IntraFocusColleagueById"
             android:label="focuspathmanager/Focus Path Intra Colleague tag ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -41,7 +41,7 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".FocusActivity$IntraFocudByTag"
+        <activity android:name=".FocusActivity$IntraFocusColleagueByTag"
             android:label="focuspathmanager/Focus Path Intra Colleague id">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

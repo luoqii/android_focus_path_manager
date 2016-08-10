@@ -47,7 +47,7 @@ public class FocusActivity extends Activity {
         }
     }
 
-    public static class IntraFocudById extends FocusActivity {
+    public static class IntraFocusColleagueById extends FocusActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -69,7 +69,7 @@ public class FocusActivity extends Activity {
         }
     }
 
-    public static class IntraFocudByTag extends FocusActivity {
+    public static class IntraFocusColleagueByTag extends FocusActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

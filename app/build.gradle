@@ -19,6 +19,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -37,4 +40,9 @@ dependencies {
 
     androidTestCompile 'com.android.support:support-annotations:23.3.0'
     compile 'com.android.support:support-annotations:23.3.0'
+
+    //https://google.github.io/android-testing-support-library/docs/espresso/setup/index.html
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support:support-annotations:23.3.0'
 }
