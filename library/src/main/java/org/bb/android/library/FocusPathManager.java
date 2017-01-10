@@ -402,7 +402,7 @@ public class FocusPathManager {
         return handled;
     }
 
-    private static int keyCode2Direction(int keyCode) {
+    public static int keyCode2Direction(int keyCode) {
         int direction = -1;
         if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
             direction = View.FOCUS_DOWN;
